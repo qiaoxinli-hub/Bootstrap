@@ -52,9 +52,9 @@ H_1: p\ne 0.50.
 
 The number of tosses is 100, and the observed number of heads is 62. Under the null hypothesis,
 
-$$\[
-X\mid H_0 \sim \operatorname{Binomial}(100,0.50).
-\]$$
+$$
+X \mid H_0 \sim \mathrm{Binomial}(100, 0.50).
+$$
 
 The script simulates 10,000 values from this null distribution. It identifies outcomes at least as far from the null expectation (50 heads) as the observed result, and estimates the two-sided p-value using the simulated tail probability. It also calculates the exact two-sided binomial-test p-value for comparison.
 
@@ -172,7 +172,7 @@ After the script finishes, open the following HTML files in a web browser:
 
 Keep each HTML file next to its corresponding `*_files/` support directory. Moving or downloading only the HTML file may prevent some interactive components from loading.
 
-## Programmatically generated outputs
+## Generated outputs
 
 | Output file | Contents |
 |---|---|
