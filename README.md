@@ -2,8 +2,6 @@
 
 This project uses reproducible simulation in R to illustrate three connected ideas in statistical inference: **bootstrap distributions**, **confidence-interval coverage**, and **hypothesis testing under a simulated null distribution**. Interactive Plotly figures make the sampling distributions, confidence intervals, rejection regions, and p-values easier to inspect.
 
-**Repository:** https://github.com/qiaoxinli-hub/Bootstrap
-
 ## Project objectives
 
 The project addresses the following questions:
@@ -34,9 +32,9 @@ The second experiment evaluates the repeated-sampling coverage of z-based confid
 
 For each sample size (10, 25, 50, and 100), the script generates 10,000 independent samples from the same Normal population. For each sample, it constructs two-sided confidence intervals at the 90%, 95%, and 99% levels using
 
-\[
+$$\[
 \bar X \pm z_{1-\alpha/2}\frac{\sigma}{\sqrt n}.
-\]
+\]$$
 
 An interval is counted as covering the parameter when it contains the true population mean. The empirical coverage rate is the proportion of the 10,000 intervals that contain the true mean.
 
@@ -46,17 +44,17 @@ The 95% results are displayed in a labeled HTML table, while the CSV file retain
 
 The final experiment considers a two-sided test of a fair-coin null hypothesis:
 
-\[
+$$\[
 H_0: p=0.50
 \qquad\text{versus}\qquad
 H_1: p\ne 0.50.
-\]
+\]$$
 
 The number of tosses is 100, and the observed number of heads is 62. Under the null hypothesis,
 
-\[
+$$\[
 X\mid H_0 \sim \operatorname{Binomial}(100,0.50).
-\]
+\]$$
 
 The script simulates 10,000 values from this null distribution. It identifies outcomes at least as far from the null expectation (50 heads) as the observed result, and estimates the two-sided p-value using the simulated tail probability. It also calculates the exact two-sided binomial-test p-value for comparison.
 
@@ -214,16 +212,4 @@ For 62 heads in 100 tosses under the fair-coin null:
 
 The exact p-value is below 0.05, so the null hypothesis is rejected at the 5% significance level. At the 1% level, the critical region does not include the observed result.
 
-## Reproducibility and implementation notes
-
-- Random seeds are explicitly set for the main simulation sections.
-- Simulation settings are collected at the top of the R script.
-- Inputs, intermediate simulation draws, summary statistics, confidence intervals, and test results are saved programmatically as CSV files.
-- Figures are generated programmatically using Plotly and saved as HTML widgets.
-- The script includes input checks for invalid simulation settings.
-- The coverage experiment is a repeated-sampling Monte Carlo experiment with known population SD; it is conceptually distinct from bootstrap resampling.
-
-## Author
-
-Qiaoxin Li
 
